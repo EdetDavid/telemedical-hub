@@ -1,4 +1,38 @@
 {% load static %}
+
+<style>
+  .responsive-header {
+    transition: display 0.3s ease;
+  }
+  .header {
+    display: block;
+  }
+  #mobile-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: none;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 430px) {
+    .hamburger-btn {
+      display: block;
+    }
+
+    #mobile-nav {
+      display: block;
+    }
+    .responsive-header {
+      display: none;
+    }
+  }
+</style>
+
 <header class="header header--loggedIn" style="background: white">
   <div class="container">
     <!-- Navbar Logo  -->
@@ -31,7 +65,7 @@
     <nav class="header__menu">
       <!-- Nav Links -->
       {% if request.user.is_authenticated %}
-      <div class="navbar-links">
+      <div class="navbar-links responsive-header">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a href="{% url 'home'  %}" class="nav-link"> Home </a>
@@ -118,7 +152,50 @@
       </div>
     </nav>
   </div>
+
+  <button type="button" class="hamburger-btn">&#9776;</button>
+
+  <div id="mobile-nav">
+    <ul>
+      <li class="nav-item">
+        <a href="{% url 'home'  %}" class="nav-link" style="color: #000">
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'about'  %}" class="nav-link" style="color: #000">
+          About</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          href="{% url 'measles_ai_view'  %}"
+          class="nav-link"
+          style="color: #000"
+        >
+          MediPro</a
+        >
+      </li>
+    </ul>
+  </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerBtn = document.querySelector(".hamburger-btn");
+    const mobileNav = document.querySelector("#mobile-nav");
+
+    if (hamburgerBtn && mobileNav) {
+      // Hide the responsive header by default
+      mobileNav.style.display = "none";
+
+      hamburgerBtn.addEventListener("click", function () {
+        mobileNav.style.display =
+          mobileNav.style.display === "none" ? "block" : "none";
+      });
+    }
+  });
+</script>
 
 <!-- {% if request.user.is_authenticated %}
 <p>Hello {{request.user}}</p>

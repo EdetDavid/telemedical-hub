@@ -299,6 +299,7 @@ body {
         </div>
 
       </div>
+      {% if user.is_authenticated %}
       <div class="room__message">
         <form action="" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
@@ -314,6 +315,7 @@ body {
         </form>
 
       </div>
+      {% endif %}
     </div>
     <!-- Room End -->
 
