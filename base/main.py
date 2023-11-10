@@ -17,6 +17,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.utils import _joblib as joblib
+import os
 
 
 # In[22]:
@@ -24,7 +25,9 @@ from sklearn.utils import _joblib as joblib
 
 # Reading the train.csv by removing the
 # last column since it's an empty column
-DATA_PATH = "/home/dvooskid/Desktop/PROJECTS/DINERO CHAT APP/base/dataset/Testing.csv"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, 'dataset/Testing.csv')
+
 data = pd.read_csv(DATA_PATH).dropna(axis=1)
 
 # Checking whether the dataset is balanced or not
@@ -106,8 +109,9 @@ final_dt_model.fit(X, y)
 
 
 # Reading the test data
-test_data = pd.read_csv(
-    "/home/dvooskid/Desktop/PROJECTS/DINERO CHAT APP/base/dataset/Testing.csv").dropna(axis=1)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, 'dataset/Testing.csv')
+test_data = pd.read_csv(DATA_PATH).dropna(axis=1)
 
 test_X = test_data.iloc[:, :-1]
 test_Y = encoder.transform(test_data.iloc[:, -1])
