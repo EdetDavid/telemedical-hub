@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <title>Telemedical Hub</title>
+    <link
+      rel="icon"
+      href="https://static1.squarespace.com/static/5f29a8cacd87ee443f45e736/t/6078aae42f609d18214f49c4/1618520804864/icon-doctor.jpg"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    {% include 'navbar.html' %} {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src='{% static "js/AgoraRTC_N-4.7.3.js" %}'></script>
+    <script src='{% static "js/stream.js" %}'></script>
+  </body>
+</html>

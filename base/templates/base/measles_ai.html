@@ -1,0 +1,208 @@
+{% extends 'main.html' %} {% block content %}
+
+<style>
+  @media screen and (min-width: 500px) {
+    .flex {
+      margin-top: 48px !important;
+    }
+  }
+</style>
+
+<div class="flex items-center justify-center h-screen">
+  <div
+    class="bg-white shadow-md rounded px-20 pt-16 pb-20 mb-8 w-full max-w-2xl"
+  >
+    <form id="symptomsForm" action="{% url 'measles_ai_view' %}" method="post">
+      {% csrf_token %}
+      <div class="mb-12">
+        <!-- sel 1 -->
+        <label
+          for="symptom-1"
+          class="block text-gray-700 text-xl font-bold mb-4"
+          >Select Symptom:
+        </label>
+        <select
+          id="symptom-1"
+          name="symptom-1"
+          class="w-full px-8 py-4 border rounded text-black"
+        >
+          <option value="Itching">Itching</option>
+          <option value="Skin Rash">Skin Rash</option>
+          <option value="High Fever">High Fever</option>
+          <option value="Cough">Cough</option>
+          <option value="Runny Nose">Runny Nose</option>
+          <option value="Redness Of Eyes">Redness Of Eyes</option>
+          <option value="Headache">Headache</option>
+          <option value="Chills">Chills</option>
+          <option value="Vomiting">Vomiting</option>
+          <option value="Nausea">Nausea</option>
+          <option value="Diarrhoea">Diarrhoea</option>
+          <option value="Fatigue">Fatigue</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Restlessness">Restlessness</option>
+          <option value="Lethargy">Lethargy</option>
+          <option value="Irregular Sugar Level">Irregular Sugar Level</option>
+          <option value="Blurred And Distorted Vision">
+            Blurred And Distorted Vision
+          </option>
+          <option value="Obesity">Obesity</option>
+          <option value="Excessive Hunger">Excessive Hunger</option>
+        </select>
+        <!-- sel 2 -->
+        <label
+          for="symptom-2"
+          class="block text-gray-700 text-xl font-bold mb-4"
+          >Select Symptom:
+        </label>
+        <select
+          id="symptom-2"
+          name="symptom-2"
+          class="w-full px-8 py-4 border rounded text-black"
+        >
+          <option value="Itching">Itching</option>
+          <option value="Skin Rash">Skin Rash</option>
+          <option value="High Fever">High Fever</option>
+          <option value="Cough">Cough</option>
+          <option value="Runny Nose">Runny Nose</option>
+          <option value="Redness Of Eyes">Redness Of Eyes</option>
+          <option value="Headache">Headache</option>
+          <option value="Chills">Chills</option>
+          <option value="Vomiting">Vomiting</option>
+          <option value="Nausea">Nausea</option>
+          <option value="Diarrhoea">Diarrhoea</option>
+          <option value="Fatigue">Fatigue</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Restlessness">Restlessness</option>
+          <option value="Lethargy">Lethargy</option>
+          <option value="Irregular Sugar Level">Irregular Sugar Level</option>
+          <option value="Blurred And Distorted Vision">
+            Blurred And Distorted Vision
+          </option>
+          <option value="Obesity">Obesity</option>
+          <option value="Excessive Hunger">Excessive Hunger</option>
+        </select>
+        <!-- sel 3 -->
+        <label
+          for="symptom-3"
+          class="block text-gray-700 text-xl font-bold mb-4"
+          >Select Symptom:</label
+        >
+        <select
+          id="symptom-3"
+          name="symptom-3"
+          class="w-full px-8 py-4 border rounded text-black"
+        >
+          <option value="Itching">Itching</option>
+          <option value="Skin Rash">Skin Rash</option>
+          <option value="High Fever">High Fever</option>
+          <option value="Cough">Cough</option>
+          <option value="Runny Nose">Runny Nose</option>
+          <option value="Redness Of Eyes">Redness Of Eyes</option>
+          <option value="Headache">Headache</option>
+          <option value="Chills">Chills</option>
+          <option value="Vomiting">Vomiting</option>
+          <option value="Nausea">Nausea</option>
+          <option value="Diarrhoea">Diarrhoea</option>
+          <option value="Fatigue">Fatigue</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Restlessness">Restlessness</option>
+          <option value="Lethargy">Lethargy</option>
+          <option value="Irregular Sugar Level">Irregular Sugar Level</option>
+          <option value="Blurred And Distorted Vision">
+            Blurred And Distorted Vision
+          </option>
+          <option value="Obesity">Obesity</option>
+          <option value="Excessive Hunger">Excessive Hunger</option>
+        </select>
+        <!-- sel 4 -->
+        <label
+          for="symptom-4"
+          class="block text-gray-700 text-xl font-bold mb-4"
+          >Select Symptom:</label
+        >
+        <select
+          id="symptom-4"
+          name="symptom-4"
+          class="w-full px-8 py-4 border rounded text-black"
+        >
+          <option value="Itching">Itching</option>
+          <option value="Skin Rash">Skin Rash</option>
+          <option value="High Fever">High Fever</option>
+          <option value="Cough">Cough</option>
+          <option value="Runny Nose">Runny Nose</option>
+          <option value="Redness Of Eyes">Redness Of Eyes</option>
+          <option value="Headache">Headache</option>
+          <option value="Chills">Chills</option>
+          <option value="Vomiting">Vomiting</option>
+          <option value="Nausea">Nausea</option>
+          <option value="Diarrhoea">Diarrhoea</option>
+          <option value="Fatigue">Fatigue</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Restlessness">Restlessness</option>
+          <option value="Lethargy">Lethargy</option>
+          <option value="Irregular Sugar Level">Irregular Sugar Level</option>
+          <option value="Blurred And Distorted Vision">
+            Blurred And Distorted Vision
+          </option>
+          <option value="Obesity">Obesity</option>
+          <option value="Excessive Hunger">Excessive Hunger</option>
+        </select>
+        <!-- sel 5 -->
+        <label
+          for="symptom-5"
+          class="block text-gray-700 text-xl font-bold mb-4"
+          >Select Symptom:</label
+        >
+        <select
+          id="symptom-5"
+          name="symptom-5"
+          class="w-full px-8 py-4 border rounded text-black"
+        >
+          <option value="Itching">Itching</option>
+          <option value="Skin Rash">Skin Rash</option>
+          <option value="High Fever">High Fever</option>
+          <option value="Cough">Cough</option>
+          <option value="Runny Nose">Runny Nose</option>
+          <option value="Redness Of Eyes">Redness Of Eyes</option>
+          <option value="Headache">Headache</option>
+          <option value="Chills">Chills</option>
+          <option value="Vomiting">Vomiting</option>
+          <option value="Nausea">Nausea</option>
+          <option value="Diarrhoea">Diarrhoea</option>
+          <option value="Fatigue">Fatigue</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Restlessness">Restlessness</option>
+          <option value="Lethargy">Lethargy</option>
+          <option value="Irregular Sugar Level">Irregular Sugar Level</option>
+          <option value="Blurred And Distorted Vision">
+            Blurred And Distorted Vision
+          </option>
+          <option value="Obesity">Obesity</option>
+          <option value="Excessive Hunger">Excessive Hunger</option>
+        </select>
+      </div>
+      <div class="mb-16">
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-6 px-12 rounded w-full"
+        >
+          Predict Disease
+        </button>
+      </div>
+    </form>
+
+    <!-- Display predictions -->
+    <div id="predictions" class="bg-white shadow-md rounded p-8">
+      <!-- <h2 class="text-2xl font-bold mb-4 text-black">Predictions:</h2> -->
+      {% if predictions %}
+      <p class="text-xl text-black font-bold text-3xl">
+        Diagnosis: {{predictions}}
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Your other scripts and dependencies go here -->
+
+{% endblock content %}
