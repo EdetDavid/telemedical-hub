@@ -8,7 +8,7 @@
     padding-right: 10px;
   }
 
-   button {
+  button {
     padding: 3px 5px;
     color: var(--color-dark-light);
     width: 50px;
@@ -41,10 +41,11 @@
     color: var(--color-light-gray);
   }
 
-  .flex-column{
+  .flex-column {
     display: flex;
     flex-direction: column;
   }
+
   .img-upload {
     width: 150px;
     height: 150px;
@@ -80,99 +81,118 @@
     background-color: #0056b3;
   }
 
-/* Updated CSS for the modal */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f0f0f0; /* Background color for the page */
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1001; /* Set a high z-index to keep it in front */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-  background-color: #fff; 
-  margin: 10% auto; 
-  width: 400px; /* Fixed width of 400px */
-  height: 400px;
-  max-width: 90%; /* Maximum width as a percentage of the viewport */
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle lift effect */
-}
-
-.modal-content img{
-  width: inherit;
-  height: inherit;
-  
-}
-
-.close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: red;
-}
-
-
-@media (max-width: 1022px) {
-
-  .modal-content {
-    background-color: #fff; /* Background color for the modal */
-    margin: 40% auto; /* Center vertically with some margin from the top */
-    width: 700px; /* Fixed width of 200px */
-    height: 700px; /* Fixed width of 200px */
-    max-width: 90%; /* Maximum width as a percentage of the viewport */
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle lift effect */
+  /* Updated CSS for the modal */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    /* Background color for the page */
   }
-  
-}
 
-
-
-@media (max-width: 768px) {
-
-  .modal-content {
-    background-color: #fff; /* Background color for the modal */
-    margin: 50% auto; /* Center vertically with some margin from the top */
-    width: 500px; /* Fixed width of 200px */
-    height: 500px; /* Fixed width of 200px */
-    max-width: 90%; /* Maximum width as a percentage of the viewport */
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle lift effect */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    /* Set a high z-index to keep it in front */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
   }
-  
-}
-
-
-@media (max-width: 500px) {
 
   .modal-content {
     background-color: #fff;
-    margin: 50% auto; 
-    width: 300px; 
-    height: 400px; 
+    margin: 10% auto;
+    width: 400px;
+    /* Fixed width of 400px */
+    height: 400px;
     max-width: 90%;
+    /* Maximum width as a percentage of the viewport */
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Box shadow for a subtle lift effect */
   }
-  
-}
 
+  .modal-content img {
+    width: inherit;
+    height: inherit;
+
+  }
+
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: red;
+  }
+
+
+  @media (max-width: 1022px) {
+
+    .modal-content {
+      background-color: #fff;
+      /* Background color for the modal */
+      margin: 40% auto;
+      /* Center vertically with some margin from the top */
+      width: 700px;
+      /* Fixed width of 200px */
+      height: 700px;
+      /* Fixed width of 200px */
+      max-width: 90%;
+      /* Maximum width as a percentage of the viewport */
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      /* Box shadow for a subtle lift effect */
+    }
+
+  }
+
+
+
+  @media (max-width: 768px) {
+
+    .modal-content {
+      background-color: #fff;
+      /* Background color for the modal */
+      margin: 50% auto;
+      /* Center vertically with some margin from the top */
+      width: 500px;
+      /* Fixed width of 200px */
+      height: 500px;
+      /* Fixed width of 200px */
+      max-width: 90%;
+      /* Maximum width as a percentage of the viewport */
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      /* Box shadow for a subtle lift effect */
+    }
+
+  }
+
+
+  @media (max-width: 500px) {
+
+    .modal-content {
+      background-color: #fff;
+      margin: 50% auto;
+      width: 300px;
+      height: 400px;
+      max-width: 90%;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+  }
 </style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <main class="profile-page layout layout--2">
   <div class="container">
     <!-- Room Start -->
@@ -232,7 +252,7 @@ body {
             <p>Hosted By</p>
             <a href="{% url 'user-profile' room.host.id %}" class="room__author">
               <div class="avatar avatar--small">
-                <img src="{{room.host.avatar.url}}" />
+                <img src="{{room.host.avatar.url}}" alt="avatar" />
               </div>
               <span>@{{room.host.username}}</span>
             </a>
@@ -244,7 +264,7 @@ body {
           </div> -->
           <span class="room__topics">{{room.topic}}</span>
           <a href={% url 'stream' %}>
-            <img id="call-btn" src="{% static 'images/video.svg' %}" />
+            <img id="call-btn" src="{% static 'images/video.svg' %}" alt="call btn" />
           </a>
         </div>
 
@@ -258,7 +278,7 @@ body {
                 <div class="thread__author">
                   <a href="{% url 'user-profile' message.user.id %}" class="thread__authorInfo">
                     <div class="avatar avatar--small">
-                      <img src="{{message.user.avatar.url}}" />
+                      <img src="{{message.user.avatar.url}}" alt="avatar" />
                     </div>
                     <span>@{{message.user.username}}</span>
                   </a>
@@ -282,16 +302,16 @@ body {
                 {{message.body}}
                 {% if message.image %}
                 <img class="img-upload openImageModal" src="{{ message.image.url }}" alt="Click to Open">
-            
+
                 <!-- Modal structure -->
                 <div class="modal">
-                    <div class="modal-content">
-                        <span class="close closeModalButton">&times;</span>
-                        <img src="{{ message.image.url }}" alt="Image">
-                    </div>
+                  <div class="modal-content">
+                    <span class="close closeModalButton">&times;</span>
+                    <img src="{{ message.image.url }}" alt="Image">
+                  </div>
                 </div>
-            {% endif %}
-            
+                {% endif %}
+
               </div>
             </div>
             {% endfor %}
@@ -326,7 +346,7 @@ body {
         {% for user in participants %}
         <a href="{%  url 'user-profile' user.id %}" class="participant">
           <div class="avatar avatar--medium">
-            <img src="{{user.avatar.url}}" />
+            <img src="{{user.avatar.url}}" alt="avatar" />
           </div>
           <p>
             {{user.name}}
@@ -372,6 +392,28 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script type="text/javascript">
+  $(document).ready(function () {
+    function refreshPage() {
+      $.ajax({
+        type: 'GET',
+        url: window.location.href,
+        success: function (data) {
+          // Replace the entire HTML content of the body with the updated content
+          $('body').html(data);
+        },
+        error: function (error) {
+          console.log('Error refreshing page:', error);
+        }
+      });
+    }
 
-<script src="script.js"></script>
+    // Call the refreshPage function every N seconds (adjust the interval as needed)
+    setInterval(refreshPage, 12000); // Refresh every 5 seconds
+  });
+</script>
+
+
+
+
 {% endblock content %}
