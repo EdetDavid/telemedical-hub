@@ -321,7 +321,7 @@
       </div>
       {% if user.is_authenticated %}
       <div class="room__message">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form id="myForm" action="" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="form-group">
             <input id="input-text" name="body" placeholder="Write your message here..." /><br>
@@ -409,8 +409,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Call the refreshPage function every N seconds (adjust the interval as needed)
-    setInterval(refreshPage, 12000); // Refresh every 5 seconds
+    setInterval(refreshPage, 15000); // Refresh every 15 seconds
   });
+
+
+
+  <!-- prevent form from reloading -->
+
+
+
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  var form = event.target; // Reference to the form
+  var formData = new FormData(form); // Collect form data
+
+  // Create and configure the AJAX request
+  var xhr = new XMLHttpRequest();
+  xhr.open(form.method, form.action, true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Request successful, handle response if needed
+        console.log(xhr.responseText);
+        form.reset(); // Reset the form
+      } else {
+        // Request failed, handle error if needed
+        console.error("Request failed with status:", xhr.status);
+      }
+    }
+  };
+
+  // Send the form data
+  xhr.send(new URLSearchParams(formData));
+});
+
 </script>
 
 
