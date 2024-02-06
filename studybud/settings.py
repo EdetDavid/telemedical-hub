@@ -82,9 +82,17 @@ WSGI_APPLICATION = 'studybud.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+      'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',
+        'USER':   'default',
+        'PASSWORD': 'RznK2kZ4xbuH',
+        'HOST': 'ep-steep-tooth-47162027.eu-central-1.postgres.vercel-storage.com',
+        'PORT': '5432'
     }
 }
 
